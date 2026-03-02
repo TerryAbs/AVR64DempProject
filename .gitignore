@@ -1,52 +1,94 @@
-# Prerequisites
-*.d
+############################################################
+# ROOT IGNORE FOR MONOREPO (Multiple Embedded Subprojects)
+############################################################
 
-# Object files
+####################################
+# OS / Editor clutter (anywhere)
+####################################
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+*.tmp
+*.bak
+*.swp
+*.swo
+*.log
+
+####################################
+# VS Code (keep shared configs)
+####################################
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+####################################
+# Generic build products (anywhere)
+####################################
+**/Debug/
+**/Release/
+**/build/
+**/Build/
+**/dist/
+**/output/
+**/out/
+**/obj/
+**/ipch/
+**/GeneratedFiles/
+
 *.o
-*.ko
 *.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
 *.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
+*.lib
+*.d
+*.elf
 *.hex
+*.bin
+*.map
+*.lss
+*.eep
+*.srec
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+####################################
+# Microchip Studio / Atmel Studio
+####################################
+*.atsuo
+*.atsln
+*.componentinfo.xml
+*.cproj.user
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+####################################
+# MPLAB X (NetBeans-based)
+####################################
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+**/nbproject/*.xml
+**/*.X.production.*
+**/*.X.debug.*
+
+####################################
+# MCC / Packs / Harmony download caches
+####################################
+**/mcc_generated_files/.cache/
+**/.mchp_packs/
+**/*.pack
+**/.generated/
+
+####################################
+# PlatformIO / Python / common caches (if you ever use them)
+####################################
+**/.pio/
+**/.pytest_cache/
+**/__pycache__/
+**/*.pyc
+**/.cache/
+
+####################################
+# OPTIONAL: ignore toolchain output folders you never want
+# (uncomment if you confirm these are always safe to ignore)
+####################################
+# **/.vs/
+# **/.idea/
