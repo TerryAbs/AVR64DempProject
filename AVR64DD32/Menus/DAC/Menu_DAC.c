@@ -11,13 +11,13 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader DACHeader[] PROGMEM = {
+const MenuHeader DACHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_DACMenu, msg_DACMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody DACBody[] PROGMEM = {
+const MenuBody DACBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN, msg_ENABLE,	 EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_B,		msg_LTR_B_LEN, msg_REFRANGE, VRefMainMenu},
 	{  7, 2, themeWhiteBlack,	msg_LTR_C,		msg_LTR_C_LEN, msg_DACMODE,	 DACModeMainMenu},
@@ -28,7 +28,7 @@ static const MenuBody DACBody[] PROGMEM = {
 };
 
 
-static const DataEntry DACConfigDataEntry[] PROGMEM = {
+const DataEntry DACConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct DACConfiguration, enabled),		FIELDTYPE_BOOL,		EnableDisableDecode},
 	{  6, 32, themeCyanBlack,	offsetof(struct DACConfiguration, refRange),	FIELDTYPE_UINT8,	RefDecode},
 	{  7, 32, themeCyanBlack,	offsetof(struct DACConfiguration, mode),		FIELDTYPE_UINT8,	DACModeDecode},
@@ -36,7 +36,6 @@ static const DataEntry DACConfigDataEntry[] PROGMEM = {
 	{  9, 32, themeCyanBlack,	offsetof(struct DACConfiguration, Offset),	FIELDTYPE_FLOAT,		DecodeFloat},
 	{  10,32, themeCyanBlack,	offsetof(struct DACConfiguration, steps),	FIELDTYPE_UINT16,		DecodeUint16_t}
 };
-
 
 MenuSystem DACMainMenu = {
 	.menuHeader = DACHeader,

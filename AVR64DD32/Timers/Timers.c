@@ -33,8 +33,8 @@ TimersConfiguration TimersSystem = {
 	DUTYCYCLELIST_50
 };
 
-static const char* msg_Config_Waveform;
-static const char* msg_Config_CklSel;
+const char* msg_Config_Waveform;
+const char* msg_Config_CklSel;
 
 void Timers_Display(void *ptrData, const char *msg)
 {

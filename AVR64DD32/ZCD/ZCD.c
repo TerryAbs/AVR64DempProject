@@ -16,8 +16,8 @@
 
 volatile uint32_t positive_crossings = 0;
 volatile uint32_t negative_crossings = 0;
-static const char *msg_ZCD_EdgeMessage;
-static uint16_t ZCDLoopCounter = 0;
+const char *msg_ZCD_EdgeMessage;
+uint16_t ZCDLoopCounter = 0;
 
 ZCDConfiguration ZCDSystem = {
 	SIGNATURE_BYTES_ZCD,

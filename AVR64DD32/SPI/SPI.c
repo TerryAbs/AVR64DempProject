@@ -14,11 +14,11 @@
 #include "Display_Processor/Display_Processor.h"
 #include "SPI_Basic.h"  // MicroStudio SPI driver
 
-static uint8_t spi_buffer[SPIbuffersize];
-static uint8_t 	manufacturer;
-static uint8_t 	device_id1;
-static enum SPI_STATE_MACHINE spiStateMachine;
-static uint8_t SPI_TimedOut;
+uint8_t spi_buffer[SPIbuffersize];
+uint8_t 	manufacturer;
+uint8_t 	device_id1;
+enum SPI_STATE_MACHINE spiStateMachine;
+uint8_t SPI_TimedOut;
 
 /*
  * AT45DB041D Manufacturer and Device ID Reader

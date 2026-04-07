@@ -11,14 +11,14 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader PortsHeader[] PROGMEM = {
+const MenuHeader PortsHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_PortsMenu, msg_PortsMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
 
-static const MenuBody PortsBody[] PROGMEM = {
+const MenuBody PortsBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN, msg_ENABLE,					EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_B,		msg_LTR_B_LEN, msg_PortDirectionPC3,		PortDirectionMainMenu},
 	{  7, 2, themeWhiteBlack,	msg_LTR_C,		msg_LTR_C_LEN, msg_OutputDefault,			OutputHighLowMainMenu},
@@ -31,7 +31,7 @@ static const MenuBody PortsBody[] PROGMEM = {
 	{  14, 2, themeWhiteBlack,	msg_LTR_X,		msg_LTR_X_LEN, msg_MainMenu,				DisplayMainMenu}
 };
 
-static const DataEntry PortsConfigDataEntry[] PROGMEM = {
+const DataEntry PortsConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct PortsConfiguration, enabled),			FIELDTYPE_BOOL,		EnableDisableDecode},
 	{  6, 32, themeCyanBlack,	offsetof(struct PortsConfiguration, portAOutput),		FIELDTYPE_BOOL,		PortDirectionDecode},
 	{  7, 32, themeCyanBlack,	offsetof(struct PortsConfiguration, portAOutputValue),	FIELDTYPE_BOOL,		HighLowDecode},

@@ -10,22 +10,9 @@
  * @version 1.0
  *
  * @par Memory Organization
- *      Total: 512 bytes (0x0000 - 0x01FF)
+ *      Total: 256 bytes (0x1400 - 0x14FF)
  *      
- *      Address Range | Module          | Size
- *      --------------|-----------------|-------
- *      0x0000-0x001F | ADC Config      | 32 bytes
- *      0x0020-0x003F | DAC Config      | 32 bytes
- *      0x0040-0x005F | Timer Config    | 32 bytes
- *      0x0060-0x007F | USART Config    | 32 bytes
- *      0x0080-0x009F | SPI Config      | 32 bytes
- *      0x00A0-0x00BF | TWI Config      | 32 bytes
- *      0x00C0-0x00DF | Event Config    | 32 bytes
- *      0x00E0-0x00FF | CCL Config      | 32 bytes
- *      0x0100-0x011F | Port Config     | 32 bytes
- *      0x0120-0x013F | RTC Config      | 32 bytes
- *      0x0140-0x015F | ZCD Config      | 32 bytes
- *      0x0160-0x01FF | Reserved        | 160 bytes
+ *      See table below
  *
  * @note    Each module allocation includes signature byte for validation
  * @note    Reserved space available for future expansion

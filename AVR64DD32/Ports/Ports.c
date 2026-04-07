@@ -12,9 +12,9 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Display_Processor/Display_Processor.h"
 
-static char msg_PortA_Output;
-static char msg_PortA_Inverted;
-static char msg_PortB_Inverted;
+char msg_PortA_Output;
+char msg_PortA_Inverted;
+char msg_PortB_Inverted;
 
 PortsConfiguration PortsSystem = {
 	SIGNATURE_BYTES_PORTS,

@@ -45,7 +45,7 @@ typedef struct SPI_0_descriptor_s {
 	spi_transfer_done_cb_t cb;
 } SPI_0_descriptor_t;
 
-static SPI_0_descriptor_t SPI_0_desc;
+SPI_0_descriptor_t SPI_0_desc;
 
 /**
  * \brief Initialize SPI interface

@@ -13,7 +13,7 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Display_Processor/Display_Processor.h"
 
-static uint8_t CCL_StepsData;
+uint8_t CCL_StepsData;
 
 CCLConfiguration CCLSystem = {
 	SIGNATURE_BYTES_CCL,

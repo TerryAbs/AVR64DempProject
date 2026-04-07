@@ -12,10 +12,10 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Display_Processor/Display_Processor.h"
 
-static uint8_t PCF8591Data;
-static uint8_t PCF8591Command;
-static enum TWI_I2C_WRITESTATES TWI_I2C_WriteStateMachine;
-static enum TWI_I2C_MONITORSTATES TWI_I2C_MonitorStateMachine;
+uint8_t PCF8591Data;
+uint8_t PCF8591Command;
+enum TWI_I2C_WRITESTATES TWI_I2C_WriteStateMachine;
+enum TWI_I2C_MONITORSTATES TWI_I2C_MonitorStateMachine;
 
 TWI_I2CConfiguration TWI_I2CSystem = {
 	SIGNATURE_BYTES_TWI,

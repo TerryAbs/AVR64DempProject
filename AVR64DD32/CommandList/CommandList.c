@@ -15,7 +15,7 @@
 // TODO: Need to rethink this code
 // the value of ten represent
 #define PROGMEMBUFFERSIZE 20
-static char ProgmemBuffer[PROGMEMBUFFERSIZE + 1];
+char ProgmemBuffer[PROGMEMBUFFERSIZE + 1];
 
 const char *ReadFromPROGMEM(PGM_P msg)
 {
@@ -25,7 +25,7 @@ const char *ReadFromPROGMEM(PGM_P msg)
 }
 
 
-static enum COMMANDMODE commandMode;
+enum COMMANDMODE commandMode;
 
 void SetCommandMode(enum COMMANDMODE mode)
 {
@@ -37,6 +37,7 @@ void ProcessCommandFromMenus(char *buf)
 	int index;
 	uint8_t value = 0;
 	bool processed = false;
+	uint8_t bufsize = 0;
 	const struct MenuSystem *activeMenu = GetActiveMenu();
 	
 	MenuBody mb;
@@ -45,84 +46,89 @@ void ProcessCommandFromMenus(char *buf)
 	for(int i = 0; i < activeMenu->menuBodySize; i++)
 	{
 		MenuBody_Read(&mb, activeMenu->menuBody, i);
-		index = strncasecmp_P(buf, mb.cmd_Msg_P, mb.cmdSize);
-		// Test to make sure at least the first x match.
-		if(index == 0 )
+		bufsize = strlen(buf);
+		// Make sure the buffer and cmd size match before testing command
+		if(bufsize == mb.cmdSize)
 		{
-			switch(activeMenu->dataEntryMode)
+			index = strncasecmp_P(buf, mb.cmd_Msg_P, mb.cmdSize);
+			// Test to make sure at least the first x match.
+			if(index == 0 )
 			{
-				case DATAENTRYMODE_MENU:
-				case DATAENTRYMODE_DISPLAYDATA:
-					if(mb.funcptr != NULL)
-					{
-						//mb.funcptr(mb.cmd_Msg_P);
-						mb.funcptr(ReadFromPROGMEM(mb.cmd_Msg_P));
-					}
-					break;
-				case DATAENTRYMODE_DROPDOWN:			
-				case DATAENTRYMODE_ENTERVALUE:			// This is to make the compiler happy. We are by passing this code 
-					// This is where the menu system gets complicate.
-					// the Body and the Data Entries must match 1:1 with row numbers
-					// The row number provides the index match to the corresponding row in the data table
-					// 
-					// The Data entry contains the value from the drop down that we want to 
-					// get and place at the provided memory location.
-					
-					// Setup up calling menu or the return menu
-					if(activeMenu->callingMenu != NULL)
-					{
-						// Return back to the calling menu
-						SetActiveMenu(activeMenu->callingMenu);	
-					}
-					
-					// DropDowns have a common exit key = 'x'
-					// The X tell the dropdown to cancel.
-					
-					if(toupper(buf[0]) != 'X')
-					{
-						index = mb.row;
-						// This menu is a little more complicated as we need to look up the call from the DataEntryMenu
-						for(int j = 0; i < activeMenu->dataEntrySize; j++)
+				switch(activeMenu->dataEntryMode)
+				{
+					case DATAENTRYMODE_MENU:
+					case DATAENTRYMODE_DISPLAYDATA:
+						if(mb.funcptr != NULL)
 						{
-							MenuDataEntry_Read(&de, activeMenu->dataEntry, j);
-							// Search for matching record
-							if(de.row == index)
-							{
-								// This location contains the value.
-								value = de.offset;
-
-								// Got it. 
-								// Get the value from the list
-								// The calling menu contains the location
-								// of where to write the results
-								switch(de.fieldType)
-								{
-									case FIELDTYPE_BOOL:
-										*(bool *)activeMenu->dataptr = (bool)value;
-										break;
-									case FIELDTYPE_UINT8:
-										*(uint8_t *)activeMenu->dataptr = value;
-										break;
-									case FIELDTYPE_UINT16:
-										*(uint16_t *)activeMenu->dataptr = value;
-										break;
-									case FIELDTYPE_FLOAT:
-										*(float *)activeMenu->dataptr = value;
-										break;
-								}	
-								// Call the save function
-								if(activeMenu->saveConfig.Savefuncptr != NULL)							
-								{
-									activeMenu->saveConfig.Savefuncptr(activeMenu->saveConfig.index);
-								}
-								break;					
-							}						
+							//mb.funcptr(mb.cmd_Msg_P);
+							mb.funcptr(ReadFromPROGMEM(mb.cmd_Msg_P));
 						}
-					}
-					break;
+						break;
+					case DATAENTRYMODE_DROPDOWN:			
+					case DATAENTRYMODE_ENTERVALUE:			// This is to make the compiler happy. We are by passing this code 
+						// This is where the menu system gets complicate.
+						// the Body and the Data Entries must match 1:1 with row numbers
+						// The row number provides the index match to the corresponding row in the data table
+						// 
+						// The Data entry contains the value from the drop down that we want to 
+						// get and place at the provided memory location.
+					
+						// Setup up calling menu or the return menu
+						if(activeMenu->callingMenu != NULL)
+						{
+							// Return back to the calling menu
+							SetActiveMenu(activeMenu->callingMenu);	
+						}
+					
+						// DropDowns have a common exit key = 'x'
+						// The X tell the dropdown to cancel.
+					
+						if(toupper(buf[0]) != 'X')
+						{
+							index = mb.row;
+							// This menu is a little more complicated as we need to look up the call from the DataEntryMenu
+							for(int j = 0; i < activeMenu->dataEntrySize; j++)
+							{
+								MenuDataEntry_Read(&de, activeMenu->dataEntry, j);
+								// Search for matching record
+								if(de.row == index)
+								{
+									// This location contains the value.
+									value = de.offset;
+
+									// Got it. 
+									// Get the value from the list
+									// The calling menu contains the location
+									// of where to write the results
+									switch(de.fieldType)
+									{
+										case FIELDTYPE_BOOL:
+											*(bool *)activeMenu->dataptr = (bool)value;
+											break;
+										case FIELDTYPE_UINT8:
+											*(uint8_t *)activeMenu->dataptr = value;
+											break;
+										case FIELDTYPE_UINT16:
+											*(uint16_t *)activeMenu->dataptr = value;
+											break;
+										case FIELDTYPE_FLOAT:
+											*(float *)activeMenu->dataptr = value;
+											break;
+									}	
+									// Call the save function
+									if(activeMenu->saveConfig.Savefuncptr != NULL)							
+									{
+										activeMenu->saveConfig.Savefuncptr(activeMenu->saveConfig.index);
+									}
+									break;					
+								}						
+							}
+						}
+						break;
+				}
+				processed = true;
+				break;
 			}
-			processed = true;
-			break;
 		}
 	}
 	if(!processed)

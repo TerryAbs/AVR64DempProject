@@ -13,11 +13,11 @@
 #include "Common/DataStructures.h"
 #include "Menu_Report_Processor/Terminal_Commands/Terminal_Commands.h"
 
-static DisplayProcessorMap displayProcessorMap[MAXNODISPLAYPROCESSORS];
-static enum DISPLAYPROCESSORSTATES displayProcessor_StateMachine;
-static uint8_t displayProcessor_Index;
-static uint8_t displayProcessor_Slot;
-static uint8_t displayProcessor_Row;
+DisplayProcessorMap displayProcessorMap[MAXNODISPLAYPROCESSORS];
+enum DISPLAYPROCESSORSTATES displayProcessor_StateMachine;
+uint8_t displayProcessor_Index;
+uint8_t displayProcessor_Slot;
+uint8_t displayProcessor_Row;
 
 void DisplayProcessor_Initialize(void)
 {

@@ -11,13 +11,13 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader MainHeader[] PROGMEM = {
+const MenuHeader MainHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_MainMenu, msg_MainMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody MainBody[] PROGMEM = {
+const MenuBody MainBody[] PROGMEM = {
 	{  4, 2, themeWhiteBlack,	msg_ADC,		msg_ADC_LEN,	msg_ADC_Description,	ADC_Menu },
 	{  5, 2, themeWhiteBlack,	msg_CCL,		msg_CCL_LEN,	msg_CCL_Description,	CCL_Menu },
 	{  6, 2, themeWhiteBlack,	msg_DAC,		msg_DAC_LEN,	msg_DAC_Description,	DAC_Menu  },
@@ -49,7 +49,8 @@ MenuSystem MainMenu = {
 
 void MainMenu_Initialize(void)
 {
-	// Tell the Menu Processor to Process the Main enum
+	// Initialize the pointer to the main menu.
+    
 	DisplayMainMenu(NULL);
 }
 

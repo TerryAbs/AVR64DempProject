@@ -11,14 +11,14 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader ADCHeader[] PROGMEM = {
+const MenuHeader ADCHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_ADCMenu, msg_ADCMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
 
-static const MenuBody ADCBody[] PROGMEM = {
+const MenuBody ADCBody[] PROGMEM = {
 	{  4, 2, themeWhiteBlack,	msg_Num_1,		msg_Num_1_LEN, msg_INSTANT, ADC_ConfigureMenu},
 	{  5, 2, themeWhiteBlack,	msg_Num_2,		msg_Num_2_LEN, msg_AVERAGE, ADC_ConfigureMenu},
 	{  6, 2, themeWhiteBlack,	msg_Num_3,		msg_Num_3_LEN, msg_DIFFERENTIAL, ADC_ConfigureMenu},
@@ -44,13 +44,13 @@ void ADC_Menu(const char *msg)
 	SetActiveMenu(&ADCMainMenu);
 }
 
-static const MenuHeader ADCConfigHeader[] PROGMEM = {
+const MenuHeader ADCConfigHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_ADCConfigurationMenu, msg_ADCConfigurationMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody ADCConfigBody[] PROGMEM = {
+const MenuBody ADCConfigBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN, msg_ENABLE,	 EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_B,		msg_LTR_B_LEN, msg_REFRANGE, VRefMainMenu},
 	{  7, 2, themeWhiteBlack,	msg_LTR_C,		msg_LTR_C_LEN, msg_SAMPNUM,	 ADC_SampleNumberMainMenu},
@@ -60,7 +60,7 @@ static const MenuBody ADCConfigBody[] PROGMEM = {
 	{  11, 2, themeWhiteBlack,	msg_LTR_X,		msg_LTR_X_LEN, msg_ADCMenu,  ADC_Menu},		
 };
 
-static const DataEntry ADCConfigDataEntry[] PROGMEM = {
+const DataEntry ADCConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct ADCConfiguration, enabled),		FIELDTYPE_BOOL,		EnableDisableDecode},
 	{  6, 32, themeCyanBlack,	offsetof(struct ADCConfiguration, refRange),	FIELDTYPE_UINT8,	RefDecode},
 	{  7, 32, themeCyanBlack,	offsetof(struct ADCConfiguration, sampNum),		FIELDTYPE_UINT8,	ADCSampleNumberDecode},

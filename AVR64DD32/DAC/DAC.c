@@ -12,15 +12,15 @@
 #include "Display_Processor/Display_Processor.h"
 #include <math.h>
 
-static float DAC_RefVoltage = 0.0;
-static uint16_t SineWaveTable[MAX_DISPLAYSAMPLES];
-static uint16_t DAC_StepMachine;
-static enum DACSTATEMACHINE DAC_StateMachine;
-static uint16_t DAC_LastUint16;
-static float DAC_LastFloat;
-static float DAC_VoltsPerTick;
-static float DAC_SawToothTriangle_VoltsPerDivision;
-static float DAC_SawTooth_Triangle_Wave_Value;
+float DAC_RefVoltage = 0.0;
+uint16_t SineWaveTable[MAX_DISPLAYSAMPLES];
+uint16_t DAC_StepMachine;
+enum DACSTATEMACHINE DAC_StateMachine;
+uint16_t DAC_LastUint16;
+float DAC_LastFloat;
+float DAC_VoltsPerTick;
+float DAC_SawToothTriangle_VoltsPerDivision;
+float DAC_SawTooth_Triangle_Wave_Value;
 /*
 
 Notes:

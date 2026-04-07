@@ -19,7 +19,7 @@ EventsConfiguration EventsSystem = {
 	EVENTMODES_RTC
 };
 
-static const char *msg_EventsMode;
+const char *msg_EventsMode;
 // These pointers are not need for this system.
 void Events_Display(void *ptrData, const char *msg)
 {

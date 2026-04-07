@@ -14,10 +14,10 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Display_Processor/Display_Processor.h"
 
-static char CurrentDisplayTime[RTCDisplayBuffer];
-static rtc_time_t current_time = {0, 0, 12, 1, 1, 2025};
-static bool time_updated = false;
-static uint8_t lastSecond = 0;
+char CurrentDisplayTime[RTCDisplayBuffer];
+rtc_time_t current_time = {0, 0, 12, 1, 1, 2025};
+bool time_updated = false;
+uint8_t lastSecond = 0;
 
 RTCConfiguration RTCSystem = {
 	SIGNATURE_BYTES_RTC,

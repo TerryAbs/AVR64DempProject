@@ -11,19 +11,19 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader SPIHeader[] PROGMEM = {
+const MenuHeader SPIHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_SPIMenu, msg_SPIMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody SPIBody[] PROGMEM = {
+const MenuBody SPIBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN, msg_ENABLE,		EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_X,		msg_LTR_X_LEN, msg_MainMenu,	DisplayMainMenu}
 };
 
 
-static const DataEntry SPIConfigDataEntry[] PROGMEM = {
+const DataEntry SPIConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct SPIConfiguration, enabled),		FIELDTYPE_BOOL,		EnableDisableDecode},
 };
 

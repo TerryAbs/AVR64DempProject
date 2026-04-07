@@ -19,17 +19,17 @@
 #include "Events/Events.h"
 #include "Timers/Timers.h"
 
-static struct EnterValueByHand enterValue;
+struct EnterValueByHand enterValue;
 
 // ADC Specific
 
-static const MenuHeader ADCPreScaleHeader[] PROGMEM = {
+const MenuHeader ADCPreScaleHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_ADCPresScaleMenu, msg_ADCPresScaleMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody ADCPreScaleBody[] PROGMEM = {
+const MenuBody ADCPreScaleBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_ADC_PRESC_DIV2_gc,	NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_ADC_PRESC_DIV4_gc,	NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_ADC_PRESC_DIV8_gc,	NULL},
@@ -85,13 +85,13 @@ void ADC_PreScaleMainMenu(const char *msg)
 	SetActiveMenu(&ADCPreScaleMainMenu);
 }
 
-static const MenuHeader ADCSampleDelayHeader[] PROGMEM = {
+const MenuHeader ADCSampleDelayHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 20, themeBlueWhite,	msg_ADCSampleDelayMenu, msg_ADCSampleDelayMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody ADCSampleDelayBody[] PROGMEM = {
+const MenuBody ADCSampleDelayBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN, msg_ADC_SAMPDLY_DLY0_gc,		NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN, msg_ADC_SAMPDLY_DLY1_gc,		NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN, msg_ADC_SAMPDLY_DLY2_gc,		NULL},
@@ -111,7 +111,7 @@ static const MenuBody ADCSampleDelayBody[] PROGMEM = {
 	{  24, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry ADCSampleDelayDataEntry[] PROGMEM = {
+const DataEntry ADCSampleDelayDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	ADC_SAMPDLY_DLY0_gc,	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	ADC_SAMPDLY_DLY1_gc,	FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeBlueWhite,	ADC_SAMPDLY_DLY2_gc,	FIELDTYPE_UINT8,		NULL, NULL},
@@ -151,19 +151,19 @@ void ADC_SampleDelayMainMenu(const char *msg)
 	SetActiveMenu(&ADCSampleDelayMainMenu);
 }
 
-static const MenuHeader ADCDataBitsHeader[] PROGMEM = {
+const MenuHeader ADCDataBitsHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 20, themeBlueWhite,	msg_ADC_DataBitsMenu, msg_ADC_DataBitsMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody ADCDataBitsBody[] PROGMEM = {
+const MenuBody ADCDataBitsBody[] PROGMEM = {
 	{  9, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN, msg_ADC_RESSEL_10BIT_gc,	 NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN, msg_ADC_RESSEL_12BIT_gc,  NULL},
 	{  11, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry ADCDataBitsDataEntry[] PROGMEM = {
+const DataEntry ADCDataBitsDataEntry[] PROGMEM = {
 	{  9, 22, themeRedBlack,	ADC_RESSEL_10BIT_gc,	FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeRedBlack,	ADC_RESSEL_12BIT_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
 };
@@ -189,13 +189,13 @@ void ADC_DataBitsMainMenu(const char *msg)
 	SetActiveMenu(&ADCDataBitsMainMenu);
 }
 
-static const MenuHeader ADCSampleNumberHeader[] PROGMEM = {
+const MenuHeader ADCSampleNumberHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 20, themeBlueWhite,	msg_ADCSampleNumberMenu, msg_ADCSampleNumberMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody ADCSampleNumberBody[] PROGMEM = {
+const MenuBody ADCSampleNumberBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,	msg_ADC_SAMPNUM_NONE_gc,	NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,	msg_ADC_SAMPNUM_ACC2_gc,	NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,	msg_ADC_SAMPNUM_ACC4_gc,	NULL},
@@ -207,7 +207,7 @@ static const MenuBody ADCSampleNumberBody[] PROGMEM = {
 	{  16, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,  NULL},
 };
 
-static const DataEntry ADCSampleNumberDataEntry[] PROGMEM = {
+const DataEntry ADCSampleNumberDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	ADC_SAMPNUM_NONE_gc,	 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	ADC_SAMPNUM_ACC2_gc,	 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeBlueWhite,	ADC_SAMPNUM_ACC4_gc,	 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -241,19 +241,19 @@ void ADC_SampleNumberMainMenu(const char *msg)
 
 // Generic Menus
 
-static const MenuHeader EnableDisabledHeader[] PROGMEM = {
+const MenuHeader EnableDisabledHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_ENABLEDMenu, msg_ENABLEDMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody EnableDisabledBody[] PROGMEM = {
+const MenuBody EnableDisabledBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_Num_1,		msg_Num_1_LEN, msg_ENABLE,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_Num_2,		msg_Num_2_LEN, msg_DISABLED, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry EnableDisabledDataEntry[] PROGMEM = {
+const DataEntry EnableDisabledDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	1,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	0,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -280,19 +280,19 @@ void EnableDisabledMainMenu(const char *msg)
 }
 
 
-static const MenuHeader PortDirectionHeader[] PROGMEM = {
+const MenuHeader PortDirectionHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_PortDirectionMenu, msg_PortDirectionMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody PortDirectionBody[] PROGMEM = {
+const MenuBody PortDirectionBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_Num_1,		msg_Num_1_LEN, msg_PortDirection_Output,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_Num_2,		msg_Num_2_LEN, msg_PortDirection_Input, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry PortDirectionDataEntry[] PROGMEM = {
+const DataEntry PortDirectionDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	1,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	0,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -319,19 +319,19 @@ void PortDirectionMainMenu(const char *msg)
 }
 
 
-static const MenuHeader PortInvertedHeader[] PROGMEM = {
+const MenuHeader PortInvertedHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_PortInvertedMenu, msg_PortInvertedMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody PortInvertedBody[] PROGMEM = {
+const MenuBody PortInvertedBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_Num_1,		msg_Num_1_LEN, msg_PortInvertedNotInveted, NULL},
 	{  9, 22, themeBlueWhite,	msg_Num_2,		msg_Num_2_LEN, msg_PortInvertedInverted,	 NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry PortInvertedDataEntry[] PROGMEM = {
+const DataEntry PortInvertedDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	0,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	1,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -358,19 +358,19 @@ void PortInvertedMainMenu(const char *msg)
 }
 
 
-static const MenuHeader PortResistorsHeader[] PROGMEM = {
+const MenuHeader PortResistorsHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_PortPullUpResistorMenu, msg_PortPullUpResistorMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody PortResistorsBody[] PROGMEM = {
+const MenuBody PortResistorsBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_Num_1,		msg_Num_1_LEN, msg_PortPullUpResistorPullUpDisabled,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_Num_2,		msg_Num_2_LEN, msg_PortPullUpResistorPullUpEnabled, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry PortResistorsDataEntry[] PROGMEM = {
+const DataEntry PortResistorsDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	0,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	1,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -396,19 +396,19 @@ void PortResistorsMainMenu(const char *msg)
 	SetActiveMenu(&PortResistorsMainMenuSystem);
 }
 
-static const MenuHeader OutputHighLowHeader[] PROGMEM = {
+const MenuHeader OutputHighLowHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_OutputLevelMenu, msg_OutputLevelMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody OutputHighLowBody[] PROGMEM = {
+const MenuBody OutputHighLowBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_Num_1,		msg_Num_1_LEN, msg_OutputLevel_HIGH,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_Num_2,		msg_Num_2_LEN, msg_OutputLevel_LOW, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry OutputHighLowDataEntry[] PROGMEM = {
+const DataEntry OutputHighLowDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	1,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	0,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -433,19 +433,19 @@ void OutputHighLowMainMenu(const char *msg)
 	ApplySaveConfigFromParentMenu(&OutputHighLowMainMenuSystem);
 	SetActiveMenu(&OutputHighLowMainMenuSystem);
 }
-static const MenuHeader PortInputLevelHeader[] PROGMEM = {
+const MenuHeader PortInputLevelHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_PortInputLevelMenu, msg_PortInputLevelMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody PortInputLevelBody[] PROGMEM = {
+const MenuBody PortInputLevelBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_Num_1,		msg_Num_1_LEN, msg_PortInputLevelTTL,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_Num_2,		msg_Num_2_LEN, msg_PortInputLevelSchmitt, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry PortInputLevelDataEntry[] PROGMEM = {
+const DataEntry PortInputLevelDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	1,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	0,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -471,13 +471,13 @@ void PortInputLevelMainMenu(const char *msg)
 	SetActiveMenu(&PortInputLevelMainMenuSystem);
 }
 
-static const MenuHeader VRefHeader[] PROGMEM = {
+const MenuHeader VRefHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 20, themeBlueWhite,	msg_VrefMenu, msg_VrefMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody VRefBody[] PROGMEM = {
+const MenuBody VRefBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_VREF_REFSEL_1V024_gc,	NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_VREF_REFSEL_2V048_gc,	NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_VREF_REFSEL_4V096_gc,	NULL},
@@ -487,7 +487,7 @@ static const MenuBody VRefBody[] PROGMEM = {
 	{  14, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,  NULL},
 };
 
-static const DataEntry VRefDataEntry[] PROGMEM = {
+const DataEntry VRefDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	VREF_REFSEL_1V024_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	VREF_REFSEL_2V048_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeBlueWhite,	VREF_REFSEL_4V096_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -519,13 +519,13 @@ void VRefMainMenu(const char *msg)
 
 // DAC Specific
 
-static const MenuHeader DACModeHeader[] PROGMEM = {
+const MenuHeader DACModeHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 26, themeBlueWhite,	msg_DACMODEMenu, msg_DACMODEMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody DACModesBody[] PROGMEM = {
+const MenuBody DACModesBody[] PROGMEM = {
 	{  9, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN, msg_SETVALUE,	 NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN, msg_SINEWAVE,  NULL},
 	{  11, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN, msg_SAWTOOHWAVE,	 NULL},
@@ -533,7 +533,7 @@ static const MenuBody DACModesBody[] PROGMEM = {
 	{  13, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry DACModesDataEntry[] PROGMEM = {
+const DataEntry DACModesDataEntry[] PROGMEM = {
 	{  9, 22, themeRedBlack,	DAC_DISPLAY_MODES_VALUE,		FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeRedBlack,	DAC_DISPLAY_MODES_SINEWAVE, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  11, 22, themeRedBlack,	DAC_DISPLAY_MODES_SAWTOOTH, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -561,20 +561,20 @@ void DACModeMainMenu(const char *msg)
 	SetActiveMenu(&DACModeMainMenuSystem);
 }
 
-static const MenuHeader CCLInputSourceHeader[] PROGMEM = {
+const MenuHeader CCLInputSourceHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 20, themeBlueWhite,	msg_CCL_INPUT, msg_CCL_INPUT_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody CCLInputSourceBody[] PROGMEM = {
+const MenuBody CCLInputSourceBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_CCL_INPUT_A,	NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_CCL_INPUT_A_B,	NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_CCL_INPUT_A_B_C,	NULL},
 	{  11, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,  NULL},
 };
 
-static const DataEntry CCLInputSourceDataEntry[] PROGMEM = {
+const DataEntry CCLInputSourceDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	VREF_REFSEL_1V024_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	VREF_REFSEL_2V048_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeBlueWhite,	VREF_REFSEL_4V096_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -601,13 +601,13 @@ void CCLInputSourceMainMenu(const char *msg)
 	SetActiveMenu(&CCLInputSourceMainMenuSystem);
 }
 
-static const MenuHeader ClkSelectHeader[] PROGMEM = {
+const MenuHeader ClkSelectHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 20, themeBlueWhite,	msg_ClkSelMenu, msg_ClkSelMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody ClkSelectBody[] PROGMEM = {
+const MenuBody ClkSelectBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_ClkSEL_DIV1_gc,		NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_ClkSEL_DIV2_gc,		NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_ClkSEL_DIV4_gc,		NULL},
@@ -619,7 +619,7 @@ static const MenuBody ClkSelectBody[] PROGMEM = {
 	{  16, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,			NULL},
 };
 
-static const DataEntry ClkSelectDataEntry[] PROGMEM = {
+const DataEntry ClkSelectDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	TCA_SINGLE_CLKSEL_DIV1_gc, 		FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	TCA_SINGLE_CLKSEL_DIV2_gc, 		FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 22, themeBlueWhite,	TCA_SINGLE_CLKSEL_DIV4_gc, 		FIELDTYPE_UINT8,		NULL, NULL},
@@ -652,13 +652,13 @@ void ClkSelectMainMenu(const char *msg)
 }
 
 
-static const MenuHeader WaveformHeader[] PROGMEM = {
+const MenuHeader WaveformHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 22, themeBlueWhite,	msg_WaveformMenu, msg_WaveformMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody WaveformBody[] PROGMEM = {
+const MenuBody WaveformBody[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_Waveform_Normal,		NULL},
 	{  9, 20, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_Waveform_Frequency,		NULL},
 	{  10, 20, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_Waveform_SingleSlope,		NULL},
@@ -668,7 +668,7 @@ static const MenuBody WaveformBody[] PROGMEM = {
 	{  14, 20, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,			NULL},
 };
 
-static const DataEntry WaveformDataEntry[] PROGMEM = {
+const DataEntry WaveformDataEntry[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	TCA_SINGLE_WGMODE_NORMAL_gc, 		FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 20, themeBlueWhite,	TCA_SINGLE_WGMODE_FRQ_gc, 			FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 20, themeBlueWhite,	TCA_SINGLE_WGMODE_SINGLESLOPE_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -698,13 +698,13 @@ void WaveformMainMenu(const char *msg)
 	SetActiveMenu(&WaveformMainMenuSystem);
 }
 
-static const MenuHeader DutyCycleHeader[] PROGMEM = {
+const MenuHeader DutyCycleHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 22, themeBlueWhite,	msg_DutyCycleMenu, msg_DutyCycleMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody DutyCycleBody[] PROGMEM = {
+const MenuBody DutyCycleBody[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_DutyCycleList_10,	NULL},
 	{  9, 20, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_DutyCycleList_20,	NULL},
 	{  10, 20, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_DutyCycleList_30,	NULL},
@@ -717,7 +717,7 @@ static const MenuBody DutyCycleBody[] PROGMEM = {
 	{  17, 20, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,			NULL},
 };
 
-static const DataEntry DutyCycleDataEntry[] PROGMEM = {
+const DataEntry DutyCycleDataEntry[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	DUTYCYCLELIST_10, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 20, themeBlueWhite,	DUTYCYCLELIST_20, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 20, themeBlueWhite,	DUTYCYCLELIST_30, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -750,20 +750,20 @@ void DutyCycleMainMenu(const char *msg)
 	SetActiveMenu(&DutyCycleMainMenuSystem);
 }
 
-static const MenuHeader InterruptEdgeHeader[] PROGMEM = {
+const MenuHeader InterruptEdgeHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 22, themeBlueWhite,	msg_InterruptEdgeMenu, msg_InterruptEdgeMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody InterruptEdgeBody[] PROGMEM = {
+const MenuBody InterruptEdgeBody[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_EdgesRising,	NULL},
 	{  9, 20, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_EdgesFalling,	NULL},
 	{  10, 20, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_EdgesBoth,	NULL},
 	{  11, 20, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,			NULL},
 };
 
-static const DataEntry InterruptEdgeDataEntry[] PROGMEM = {
+const DataEntry InterruptEdgeDataEntry[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	ZCD_INTMODE_RISING_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 20, themeBlueWhite,	ZCD_INTMODE_FALLING_gc, FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 20, themeBlueWhite,	ZCD_INTMODE_BOTH_gc, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -792,13 +792,13 @@ void InterruptEdgeMainMenu(const char *msg)
 }
 
 
-static const MenuHeader EventSystemModesHeader[] PROGMEM = {
+const MenuHeader EventSystemModesHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 22, themeBlueWhite,	msg_EventSystemModesMenu, msg_EventSystemModesMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 };
 
-static const MenuBody EventSystemModesBody[] PROGMEM = {
+const MenuBody EventSystemModesBody[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN,  msg_EventModeADC,	NULL},
 	{  9, 20, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN,  msg_EventModeCCL,	NULL},
 	{  10, 20, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN,  msg_EventModeRTC,	NULL},
@@ -806,7 +806,7 @@ static const MenuBody EventSystemModesBody[] PROGMEM = {
 	{  12, 20, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,			NULL},
 };
 
-static const DataEntry EventSystemModesDataEntry[] PROGMEM = {
+const DataEntry EventSystemModesDataEntry[] PROGMEM = {
 	{  8, 20, themeBlueWhite,	EVENTMODES_ADC, 	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 20, themeBlueWhite,	EVENTMODES_CCL,		FIELDTYPE_UINT8,		NULL, NULL},
 	{  10, 20, themeBlueWhite,	EVENTMODES_RTC, 	FIELDTYPE_UINT8,		NULL, NULL},
@@ -840,7 +840,7 @@ void EventSystemModesMainMenu(const char *msg)
 // DropDownId-only table-driven access
 // ============================================================
 
-static MenuSystem * const dropDownMenus[DROPDOWN_Count] =
+MenuSystem * const dropDownMenus[DROPDOWN_Count] =
 {
 	[DROPDOWN_EnableDisabled]	= &EnableDisabledMainMenuSystem,
 	[DROPDOWN_PreScale]			= &ADCPreScaleMainMenu,

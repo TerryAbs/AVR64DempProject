@@ -11,13 +11,13 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader USARTHeader[] PROGMEM = {
+const MenuHeader USARTHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_USARTMenu, msg_USARTMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody USARTBody[] PROGMEM = {
+const MenuBody USARTBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN,	msg_ENABLE,		EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_B,		msg_LTR_B_LEN,	msg_BaudRate,	BaudRateMainMenu},
 	{  7, 2, themeWhiteBlack,	msg_LTR_C,		msg_LTR_C_LEN,	msg_Parity,		ParityMainMenu},
@@ -27,7 +27,7 @@ static const MenuBody USARTBody[] PROGMEM = {
 };
 
 
-static const DataEntry USARTConfigDataEntry[] PROGMEM = {
+const DataEntry USARTConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct USARTConfiguration, enabled),		FIELDTYPE_BOOL,		EnableDisableDecode},
 	{  6, 32, themeCyanBlack,	offsetof(struct USARTConfiguration, baud_rate),		FIELDTYPE_UINT8,	DecodeBaudRate},		
 	{  7, 32, themeCyanBlack,	offsetof(struct USARTConfiguration, parity),		FIELDTYPE_UINT8,	DecodeParity},
@@ -58,13 +58,13 @@ void USART_Menu(const char *msg)
 }
 
 
-static const MenuHeader BaudRateHeader[] PROGMEM = {
+const MenuHeader BaudRateHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_BaudRateMenu, msg_BaudRateMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody BaudRateBody[] PROGMEM = {
+const MenuBody BaudRateBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A, 		msg_LTR_A_LEN,	msgBaudRate_300,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B, 		msg_LTR_B_LEN,	msgBaudRate_600, 	 NULL},
 	{ 10, 22, themeBlueWhite,	msg_LTR_C, 		msg_LTR_C_LEN,	msgBaudRate_1200, 	 NULL},
@@ -83,7 +83,7 @@ static const MenuBody BaudRateBody[] PROGMEM = {
 	{ 23, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN,	msg_ExitMenu,  NULL},
 };
 
-static const DataEntry BaudRateDataEntry[] PROGMEM = {
+const DataEntry BaudRateDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	BAUDRATES_300, 		FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	BAUDRATES_600, 		FIELDTYPE_UINT8,		NULL, NULL},
 	{ 10, 22, themeBlueWhite,	BAUDRATES_1200,		FIELDTYPE_UINT8,		NULL, NULL},
@@ -123,20 +123,20 @@ void BaudRateMainMenu(const char *msg)
 	SetActiveMenu(&BaudRateMainMenuSystem);
 }
 
-static const MenuHeader ParityHeader[] PROGMEM = {
+const MenuHeader ParityHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_ParityMenu, msg_ParityMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody ParityBody[] PROGMEM = {
+const MenuBody ParityBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN, msg_None,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN, msg_Even, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN, msg_Odd, NULL},
 	{  11, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry ParityDataEntry[] PROGMEM = {
+const DataEntry ParityDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	USART_PMODE_DISABLED_gc,	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	USART_PMODE_EVEN_gc,		FIELDTYPE_UINT8,		NULL, NULL},
 	{ 10, 22, themeBlueWhite,	USART_PMODE_ODD_gc,			FIELDTYPE_UINT8,		NULL, NULL},
@@ -163,19 +163,19 @@ void ParityMainMenu(const char *msg)
 	SetActiveMenu(&ParityMainMenuSystem);
 }
    
-static const MenuHeader StopBitsHeader[] PROGMEM = {
+const MenuHeader StopBitsHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_StopBitsMenu, msg_StopBitsMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody StopBitsBody[] PROGMEM = {
+const MenuBody StopBitsBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN, msg_Num_1,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN, msg_Num_2, NULL},
 	{  10, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry StopBitsDataEntry[] PROGMEM = {
+const DataEntry StopBitsDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	USART_SBMODE_1BIT_gc,	FIELDTYPE_BOOL,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	USART_SBMODE_2BIT_gc,	FIELDTYPE_BOOL,		NULL, NULL},
 };
@@ -201,13 +201,13 @@ void StopBitsMainMenu(const char *msg)
 	SetActiveMenu(&StopBitsMainMenuSystem);
 }
 
-static const MenuHeader DataBitsHeader[] PROGMEM = {
+const MenuHeader DataBitsHeader[] PROGMEM = {
 	{  4, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN},
 	{  5, 25, themeBlueWhite,	msg_DataBitsMenu, msg_DataBitsMenu_LEN},
 	{  6, 20, themeRedWhite,	msg_EQUALLONG, msg_EQUAL_LEN}
 };
 
-static const MenuBody DataBitsBody[] PROGMEM = {
+const MenuBody DataBitsBody[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	msg_LTR_A,		msg_LTR_A_LEN, msg_Num_5,	 NULL},
 	{  9, 22, themeBlueWhite,	msg_LTR_B,		msg_LTR_B_LEN, msg_Num_6,	 NULL},
 	{ 10, 22, themeBlueWhite,	msg_LTR_C,		msg_LTR_C_LEN, msg_Num_7,	 NULL},
@@ -216,7 +216,7 @@ static const MenuBody DataBitsBody[] PROGMEM = {
 	{ 13, 22, themeBlueWhite,	msg_LTR_X,		msg_LTR_X_LEN, msg_ExitMenu,  NULL},
 };
 
-static const DataEntry DataBitsDataEntry[] PROGMEM = {
+const DataEntry DataBitsDataEntry[] PROGMEM = {
 	{  8, 22, themeBlueWhite,	USART_CHSIZE_5BIT_gc,	FIELDTYPE_UINT8,		NULL, NULL},
 	{  9, 22, themeBlueWhite,	USART_CHSIZE_6BIT_gc,	FIELDTYPE_UINT8,		NULL, NULL},
 	{ 10, 22, themeBlueWhite,	USART_CHSIZE_7BIT_gc,	FIELDTYPE_UINT8,		NULL, NULL},

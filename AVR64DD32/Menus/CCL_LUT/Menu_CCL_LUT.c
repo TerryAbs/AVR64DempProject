@@ -11,13 +11,13 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader CCLHeader[] PROGMEM = {
+const MenuHeader CCLHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_CCLMenu, msg_CCLMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody CCLBody[] PROGMEM = {
+const MenuBody CCLBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN, msg_ENABLE,		EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_B,		msg_LTR_B_LEN, msg_STEPS,		GetCCLSteps},
 	{  7, 2, themeWhiteBlack,	msg_LTR_C,		msg_LTR_C_LEN, msg_INPUTSOURCE,	CCLInputSourceMainMenu},
@@ -26,7 +26,7 @@ static const MenuBody CCLBody[] PROGMEM = {
 };
 
 
-static const DataEntry CCLConfigDataEntry[] PROGMEM = {
+const DataEntry CCLConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct CCLConfiguration, enabled),		FIELDTYPE_BOOL,		EnableDisableDecode},
 	{  6, 32, themeCyanBlack,	offsetof(struct CCLConfiguration, steps),		FIELDTYPE_UINT8,	DecodeUint8_t},
 	{  7, 32, themeCyanBlack,	offsetof(struct CCLConfiguration, inputSource),	FIELDTYPE_UINT8,	CCLInputSourceDecode},

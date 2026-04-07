@@ -65,8 +65,8 @@ ADCProcessEngine ADCSystem[ADCSystemSize] =
 	{ {SIGNATURE_BYTES_ADC, ADC_CHANNELNAME_DIFFERENTIAL,	true, VREF_REFSEL_4V096_gc, ADC_SAMPNUM_NONE_gc,	ADC_SAMPDLY_DLY0_gc, ADC_RESSEL_12BIT_gc,	ADC_PRESC_DIV4_gc},		0, 0.0, msg_DIFFERENTIAL, ADC_Initialize_Differential, ADC_Read_Differential, ADC_Display_Differential}
 };
 
-static enum ADC_STATE ADC_STATE_StateMachine;
-static uint8_t ADCProcessEngineIndex;
+enum ADC_STATE ADC_STATE_StateMachine;
+uint8_t ADCProcessEngineIndex;
 
 void ADC_Initialize(void)
 {

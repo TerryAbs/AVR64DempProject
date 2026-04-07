@@ -113,7 +113,6 @@ typedef struct DataEntry {
 	uint16_t offset;    
 	enum FIELDTYPE fieldType;
 	char *(*Decodefuncptr)(void *);	// Points to the decode function
-	void (*Editfuncptr)(char *);	// Points to the Editor function
 }DataEntry;
 
 typedef struct DataEntryScreenArea {	char sRow;

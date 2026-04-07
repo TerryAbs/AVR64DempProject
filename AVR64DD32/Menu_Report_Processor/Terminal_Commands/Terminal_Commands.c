@@ -77,7 +77,7 @@ void CommandPrompt(void)
 
 //TODO: Need to Test and restore cursor position
 #define tempBufferSize 100
-static char TempBuffer[tempBufferSize ];
+char TempBuffer[tempBufferSize ];
 
 void LogErrorToScreen(const char *msg)
 {

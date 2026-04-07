@@ -12,9 +12,9 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Display_Processor/Display_Processor.h"
 
-static char USART_0_Buffer[USART_0_BufferSize + 1];
-static uint8_t USART_0_Index = 0;
-static uint8_t USART_0_CurrentIndex = 0;
+char USART_0_Buffer[USART_0_BufferSize + 1];
+uint8_t USART_0_Index = 0;
+uint8_t USART_0_CurrentIndex = 0;
 
 BaudRateConversion BaudRateTable[] = {
 	{BAUDRATES_300,		300},
@@ -35,10 +35,10 @@ BaudRateConversion BaudRateTable[] = {
 };
 #define BaudRateTableSize  sizeof(BaudRateTable) / sizeof(BaudRateConversion)
 
-static const char* msg_Config_BaudRate;
-static const char* msg_Config_Parity;
-static const char* msg_Config_StopBits;
-static const char* msg_Config_DataBits;
+const char* msg_Config_BaudRate;
+const char* msg_Config_Parity;
+const char* msg_Config_StopBits;
+const char* msg_Config_DataBits;
 
 USARTConfiguration USARTSystem = {
 	SIGNATURE_BYTES_USART,

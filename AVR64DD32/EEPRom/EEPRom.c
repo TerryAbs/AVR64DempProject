@@ -287,7 +287,7 @@ bool EEPROM_Write_Byte(uint16_t address, uint8_t data)
     // We want to read the current value and compare it
 	// against the value we are going to write
 	// and if its the same.	Were done.
-	// This sames wear and tear on the EEPROM.
+	// This saves wear and tear on the EEPROM.
 	if(EEPROM_Read_Byte(address) == data)
 	{
 		return true;

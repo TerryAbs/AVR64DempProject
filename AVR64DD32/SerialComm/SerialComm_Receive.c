@@ -13,10 +13,10 @@
 #include "SerialComm/SerialComm_Receive.h"
 
 
-static unsigned char Receive_Buffer[RECEIVE_BUFFER_SIZE + 1];
-static int Receive_Index;	// This points to the next recording location
-static bool Cmd_Ready;		// This flag indicates that we have rec
-static enum SERIALCOMM_RECEIVESTATES SERIALCOMM_ReceiveStateMachine; 
+unsigned char Receive_Buffer[RECEIVE_BUFFER_SIZE + 1];
+int Receive_Index;	// This points to the next recording location
+bool Cmd_Ready;		// This flag indicates that we have rec
+enum SERIALCOMM_RECEIVESTATES SERIALCOMM_ReceiveStateMachine; 
 
 void SerialComm_Receive_Initialize(void)
 {

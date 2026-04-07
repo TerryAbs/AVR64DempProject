@@ -11,19 +11,19 @@
 #include "CommonStrings/CommonStrings.h"
 #include "Menu_Report_Processor/Themes/Themes.h"
 
-static const MenuHeader TWIHeader[] PROGMEM = {
+const MenuHeader TWIHeader[] PROGMEM = {
 	{  1, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN},
 	{  2, 0, themeYellowBlack,	msg_TWIMenu, msg_TWIMenu_LEN},
 	{  3, 0, themeWhiteBlack,	msg_EQUAL, msg_EQUAL_LEN}
 };
 
-static const MenuBody TWIBody[] PROGMEM = {
+const MenuBody TWIBody[] PROGMEM = {
 	{  5, 2, themeWhiteBlack,	msg_LTR_A,		msg_LTR_A_LEN, msg_ENABLE,		EnableDisabledMainMenu},
 	{  6, 2, themeWhiteBlack,	msg_LTR_X,		msg_LTR_X_LEN, msg_MainMenu,	DisplayMainMenu}
 };
 
 
-static const DataEntry TWIConfigDataEntry[] PROGMEM = {
+const DataEntry TWIConfigDataEntry[] PROGMEM = {
 	{  5, 32, themeCyanBlack,	offsetof(struct TWI_I2CConfiguration, enabled),		FIELDTYPE_BOOL,		EnableDisableDecode},
 };
 

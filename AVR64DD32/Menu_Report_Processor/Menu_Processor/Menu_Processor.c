@@ -9,8 +9,8 @@
 #include "Menu_Processor.h"
 #include "CommandList/CommandList.h"
 
-static struct SystemMenuProcessor systemMenuProcessor;
-static struct MenuSystem *activeMenu;
+struct SystemMenuProcessor systemMenuProcessor;
+struct MenuSystem *activeMenu;
 
 void Menu_Processor_Initialize(void)
 {
