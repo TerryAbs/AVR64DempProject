@@ -49,6 +49,9 @@
 
 #define ADCSystemSize 3			// Total number of ADC systems
 
+#define ADC_10BitConversion     1024.0
+#define ADC_12BitConversion     4096.0
+
 enum ADC_CHANNELNAME{
 	ADC_CHANNELNAME_INSTANT,
 	ADC_CHANNELNAME_AVERAGE,
@@ -110,6 +113,7 @@ void ADC_Display_Differential(ADCProcessEngine* ptr);
 void ADC_Initialize(void);
 void ADC_Monitor(void);
 
+uint16_t ADC_ConvertRawValue(uint16_t rawData, uint8_t SampleNo);
 
 void *GetPtrToADCData(uint8_t index);
 

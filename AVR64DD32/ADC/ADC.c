@@ -107,6 +107,25 @@ bool GetADCEnabledState(void)
 	return ADCSystem[0].config.enabled;
 }
 
+uint16_t ADC_ConvertRawValue(uint16_t rawData, uint8_t SampleNo)
+{
+    uint16_t results; 
+
+            // If the sample Number is greater then 16, 
+        // then the data is truncated dropping the last 3 bits.
+        // This is because the register can only handle 16 Bits of data.
+        
+        if(SampleNo < ADC_SAMPNUM_ACC32_gc)
+        {
+            results = (rawData >> SampleNo);
+        }
+        else
+        {
+            results = (rawData >> ADC_SAMPNUM_ACC16_gc);
+        }
+    return results;
+}
+
 // Instant Read Channel 
 // Port DP5
 void ADC_Initialize_Instant(ADCProcessEngine* ptr)
@@ -140,9 +159,11 @@ void ADC_Initialize_Instant(ADCProcessEngine* ptr)
 bool ADC_Read_Instant(ADCProcessEngine* ptr)
 {
 	bool results = false;
+
 	if(ADC0.INTFLAGS & ADC_RESRDY_bm)
 	{
-		ptr->ADC_Results = ADC0.RES;
+        ptr->ADC_Results = ADC_ConvertRawValue(ADC0.RES, ptr->config.sampNum);
+        
 		ADC0.INTFLAGS = ADC_RESRDY_bm;
 		// 12-bit, Stop free-running
 		ADC0.CTRLA = ptr->config.noDataBits;
@@ -191,7 +212,7 @@ bool ADC_Read_Average(ADCProcessEngine* ptr)
 	bool results = false;
 	if(ADC0.INTFLAGS & ADC_RESRDY_bm)
 	{
-		ptr->ADC_Results =  (ADC0.RES >> 4);// this is the SUM of 64 samples (SAMPNUM=ACC64)
+        ptr->ADC_Results = ADC_ConvertRawValue(ADC0.RES, ptr->config.sampNum);
 		ADC0.INTFLAGS = ADC_RESRDY_bm;                 // clear flag
 		
 		//  Stop free-running
@@ -253,7 +274,7 @@ bool ADC_Read_Differential(ADCProcessEngine* ptr)
 	// Wait for result ready
 	if(ADC0.INTFLAGS & ADC_RESRDY_bm)
 	{
-		ptr->ADC_Results = ADC0.RES;
+		ptr->ADC_Results = ADC_ConvertRawValue(ADC0.RES, ptr->config.sampNum);
 		// Clear flag for next time
 		ADC0.INTFLAGS = ADC_RESRDY_bm;
 		
@@ -381,11 +402,11 @@ float VoltsPerTick(ADCProcessEngine *ptr)
 	float results = LookUp_RefVoltageBySetting(ptr->config.refRange);
 	if(ptr->config.noDataBits == ADC_RESSEL_12BIT_gc)
 	{
-			results /= 4096.0;
+		results /= ADC_12BitConversion;
 	}
 	else
 	{
-		results /= 1024.0;
+		results /= ADC_10BitConversion;
 	}
 	return results;
 }
